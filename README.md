@@ -47,6 +47,8 @@ This acted as a "safety net," allowing the raw data to land in SQL Server before
 ​Dimension Tables: Dim_User, Dim_Location, Dim_Employment_Status, Dim_Gender, Dim_Risk_Rating.
 
 
+
+
 ​🚀 Automation & Repository Structure
 
 
@@ -61,17 +63,17 @@ This acted as a "safety net," allowing the raw data to land in SQL Server before
 
 ├── stored_procedure/    # ETL automation logic
 
+├── azure_dashboards/    # Dashboard JSON export for reproducibility
+
 └── images/              # Documentation assets
-
-
-Commit History
-​The development process followed a clean, modular approach, moving from initial fixes to security implementation and final automation.
 
 
 ​🔧 Tools Used
 
 
 ​SQL Server Management Studio (SSMS): Database Engine & T-SQL development.
+
+Azure Data Explorer: KQL Analytics & Dashboarding.
 
 ​Draw.io: Star Schema conceptual design.
 
@@ -88,3 +90,5 @@ Commit History
 ​Run the DDL scripts in dim_&_fact_tables/ to build the Star Schema.
 
 ​Execute the procedures in stored_procedure/ to transform and load the data.
+
+Import the JSON in /azure_dashboards into your Azure Data Explorer cluster to view the live analytics.
