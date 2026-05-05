@@ -51,7 +51,7 @@ This acted as a "safety net," allowing the raw data to land in SQL Server before
 ![Credit Risk Dashboard](images/credit_dashboard.png)
 
 
-*The dashboard source is available in `Copy_Credit_Risk_Dashboard.json`. This can be imported into any Azure Data Explorer cluster.*
+*The dashboard source is available in `dashboard-Copy of credit_risk_.json`. This can be imported into any Azure Data Explorer cluster.*
 
 
 
