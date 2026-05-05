@@ -47,6 +47,13 @@ This acted as a "safety net," allowing the raw data to land in SQL Server before
 ​Dimension Tables: Dim_User, Dim_Location, Dim_Employment_Status, Dim_Gender, Dim_Risk_Rating.
 
 
+## Dashboard Preview
+![Credit Risk Dashboard](images/credit_dashboard.png)
+
+
+*The dashboard source is available in `Copy_Credit_Risk_Dashboard.json`. This can be imported into any Azure Data Explorer cluster.*
+
+
 
 
 ​🚀 Automation & Repository Structure
