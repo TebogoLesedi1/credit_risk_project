@@ -318,4 +318,4 @@ This project is provided as-is for portfolio and educational purposes.
 
 For questions about this project, feel free to open an issue or check the documentation in each folder.
 
-**Happy analyzing! 📊**
+*Happy analyzing! 📊*
