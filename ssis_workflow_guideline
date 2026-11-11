@@ -1,0 +1,47 @@
+I’ll map the project’s data flow and identify the correct SSIS order from raw data to reporting so you can follow the sequence without building it for you.
+
+Searched for regex `SSIS|staging|dim_|fact_|dashboard|raw_data|stored procedure` (`**/{README.md,sql/**,stored procedure/**,dim_&_fact_tables/**}`), 148 results
+
+Read , lines 90 to 220
+
+Read 
+
+I’ve confirmed the project’s intended ETL pattern: staging first, then dimensions, then fact table, and only then the dashboard layer. I’m translating that into a clean SSIS execution order.
+
+Read 
+
+## SSIS workflow order for this project
+
+This project is designed as an ELT flow, and the logical SSIS order is:
+
+1. Raw source to staging
+   - First load the CSV from raw_data into the staging table.
+   - This is the safest entry point before any validation or transformation.
+   - This matches the project setup in `README.md:171-211` and the staging script in `staging.sql`.
+
+2. Dimension tables
+   - After staging is loaded, create/populate the dimensions:
+     1. Dim_Gender
+     2. Dim_Employment_Status
+     3. Dim_Location
+     4. Dim_Risk_Rating
+     5. Dim_User
+   - These should be loaded before the fact table because the fact table references their keys.
+
+3. Fact table
+   - Then load Fact_Credit.
+   - This is the transactional layer and depends on the dimension keys already created.
+
+4. Reporting/dashboard layer
+   - After the warehouse tables are ready, export to CSV or move data into Azure Data Explorer / dashboard layer.
+   - This is the final reporting stage, not the ETL stage.
+
+---
+
+### In one sentence
+The correct SSIS sequence is:
+Raw CSV → Staging → Dimension tables → Fact table → Dashboard/reporting.
+
+> The key dependency is: do not load the fact table before the dimensions, because it depends on those dimension IDs.
+
+If you want, I can next give you the same flow as a simple SSIS package diagram without building the actual package.
